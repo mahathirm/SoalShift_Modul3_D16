@@ -3,14 +3,17 @@
 #include <stdlib.h>
 #include <unitsd.h>
 
-int main(){
-
-	int angka, hitung , hasil = 1;
-	printf("Masukkan Angka:\n");
+void *faktorial(){
+	int angka, hitung, hasil = 1;
 	scanf("%d", &angka);
-	for (hitung = angka; hitung >= 1; hitung--) {
+	if ( angka <= 0)
+		printf("Angka tidak bisa negatif");
+	else
+		for (hitung = angka; hitung >= 1; hitung--) {
 		hasil = hasil * hitung;
 	}
 	printf("Hasil %d! = %d\n", angka, hasil);
 	return 0;
 }
+
+int main(){
