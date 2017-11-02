@@ -10,7 +10,7 @@ void *faktorial(void *faktor){
 	if ( angka <= 0)
 		printf("Angka tidak bisa negatif");
 	else
-		for (hitung = 1; hitung >= angka; hitung++) {
+		for (hitung = 1; hitung <= angka; hitung++) {
 		hasil = hasil * hitung;
 	}
 	printf("Hasil %d! = %d\n", angka, hasil);
@@ -25,12 +25,30 @@ int main()
 	int athir[20];
 	while(1)
 	{
-		scanf("%d%c",&athir[i],&spasi);
+		scanf("%d%c",&athir[k],&spasi);
+		k++;
 		if (spasi == '\n')
 		{
 			break;	
 		}
-		i++;
+		
 	}
-	
+	for (j=0;j<=k;j++)
+	{
+		err=pthread_create(&(tid[j]),NULL,&playandcount,(void*) angka[j]);//membuat thread
+		if(err!=0)//cek error
+        	{
+            		printf("\n can't create thread : [%d]",err);
+        	}
+        	else
+        	{
+            		printf("\n create thread success");
+        	}
+        	
+	}
+	for (j=0;j<=k;j++)
+	{
+		pthread_join(tid[j],NULL);	
+	    return 0;	
+	}
 }
