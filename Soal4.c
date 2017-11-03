@@ -35,7 +35,7 @@ int main()
 	}
 	for (j=0;j<=k;j++)
 	{
-		err=pthread_create(&(tid[j]),NULL,&playandcount,(void*) angka[j]);//membuat thread
+		err=pthread_create(&(nopal[j]),NULL,&faktorial,(void*) athir[j]);//membuat thread
 		if(err!=0)//cek error
         	{
             		printf("\n can't create thread : [%d]",err);
@@ -48,7 +48,7 @@ int main()
 	}
 	for (j=0;j<=k;j++)
 	{
-		pthread_join(tid[j],NULL);	
+		pthread_join(nopal[j],NULL);	
 	    return 0;	
 	}
 }
